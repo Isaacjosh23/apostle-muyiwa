@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { IntroProvider } from "@/context/IntroContext";
 import IntroGate from "@/components/intro/IntroGate";
+import Navbar from "@/components/layout/NavBar";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <IntroProvider>
           <IntroGate />
+          <Navbar />
           {children}
         </IntroProvider>
       </body>
