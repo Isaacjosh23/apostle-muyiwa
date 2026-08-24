@@ -202,6 +202,15 @@ nav {
       transparent
     );
   }
+
+  .no-save {
+    -webkit-touch-callout: none; /* disables iOS long-press "Save Image" menu */
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none; /* extra Safari drag-out protection beyond draggable={false} */
+    -khtml-user-drag: none;
+    pointer-events: auto; /* keep tappable for lightbox open, just not draggable/saveable */
+  }
 }
 
 /* ─────────────────────────────────────
