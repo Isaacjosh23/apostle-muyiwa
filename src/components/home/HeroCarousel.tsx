@@ -17,33 +17,41 @@ export default function HeroCarousel() {
     return () => clearInterval(timer);
   }, []);
 
+  const slide = heroSlides[index];
+
   return (
     <div className="absolute inset-0 overflow-hidden">
       <AnimatePresence mode="sync">
         <motion.div
-          key={heroSlides[index].src}
+          key={slide.src ?? slide.placeholderLabel}
           className="absolute inset-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
         >
-          <Image
-            src={heroSlides[index].src}
-            alt={heroSlides[index].alt}
-            fill
-            priority={index === 0}
-            className="object-cover"
-          />
+          {slide.src ? (
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              priority={index === 0}
+              className="object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-primary via-dark-2 to-dark flex items-center justify-center">
+              <span className="font-sans text-xs sm:text-sm tracking-[0.2em] uppercase text-warm-white/30"></span>
+            </div>
+          )}
         </motion.div>
       </AnimatePresence>
 
       <div className="absolute inset-0 bg-dark/50" />
 
       <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2 z-10">
-        {heroSlides.map((slide, i) => (
+        {heroSlides.map((s, i) => (
           <button
-            key={slide.src}
+            key={s.src ?? s.placeholderLabel}
             onClick={() => setIndex(i)}
             aria-label={`Go to slide ${i + 1}`}
             className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${

@@ -1,13 +1,14 @@
 export interface HeroSlide {
-  src: string;
+  src?: string;
   alt: string;
+  placeholderLabel: string;
 }
 
 export const heroSlides: HeroSlide[] = [
-  { src: "/hero/hero-01.jpg", alt: "Daddy ministering" },
-  { src: "/hero/hero-02.jpg", alt: "Daddy with mentees" },
-  { src: "/hero/hero-03.jpg", alt: "Daddy in prayer" },
-  { src: "/hero/hero-04.jpg", alt: "Daddy at church" },
-  { src: "/hero/hero-05.jpg", alt: "Daddy with family" },
-  { src: "/hero/hero-06.jpg", alt: "Daddy portrait" },
+  { alt: "Daddy ministering", placeholderLabel: "Slide 1" },
+  { alt: "Daddy with mentees", placeholderLabel: "Slide 2" },
+  { alt: "Daddy in prayer", placeholderLabel: "Slide 3" },
+  { alt: "Daddy at church", placeholderLabel: "Slide 4" },
+  { alt: "Daddy with family", placeholderLabel: "Slide 5" },
+  { alt: "Daddy portrait", placeholderLabel: "Slide 6" },
 ];
