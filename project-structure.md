@@ -14,11 +14,21 @@ tribute-site/
 │
 ├── public/
 │   ├── gallery/                        # all 50-60 gallery images live here
-│   │   ├── photo-01.jpg
-│   │   ├── photo-02.jpg
-│   │   └── ...
+│   │   ├── throwback/                  # older/vintage photos of daddy
+│   │   │   ├── photo-01.jpg
+│   │   │   ├── photo-02.jpg
+│   │   │   └── ...
+│   │   └── current/                    # recent photos of daddy
+│   │       ├── photo-01.jpg
+│   │       ├── photo-02.jpg
+│   │       └── ...
 │   ├── hero/
-│   │   └── hero-portrait.jpg
+│   │   ├── hero-01.jpg                 # up to 6 slides for the Hero image carousel
+│   │   ├── hero-02.jpg
+│   │   ├── hero-03.jpg
+│   │   ├── hero-04.jpg
+│   │   ├── hero-05.jpg
+│   │   └── hero-06.jpg
 │   └── favicon.ico
 │
 └── src/
@@ -60,7 +70,8 @@ tribute-site/
     │   │   └── Footer.tsx
     │   │
     │   ├── home/
-    │   │   ├── Hero.tsx
+    │   │   ├── Hero.tsx                 # wraps HeroCarousel + heading/tribute line
+    │   │   ├── HeroCarousel.tsx         # image slider, up to 6 slides, Framer Motion crossfade/slide
     │   │   ├── FeaturedImages.tsx
     │   │   ├── FeaturedVideos.tsx
     │   │   └── LetterCTA.tsx           # 4th home section linking to /letters
@@ -70,6 +81,7 @@ tribute-site/
     │   │   └── VideoCard.tsx           # Vimeo embed wrapper
     │   │
     │   ├── gallery/
+    │   │   ├── GalleryTabs.tsx          # "Throwback" / "Current" tab switcher
     │   │   ├── GalleryGrid.tsx
     │   │   └── Lightbox.tsx
     │   │
@@ -98,7 +110,7 @@ tribute-site/
     │   │   └── letterSchema.ts         # zod schema for the letter form
     │   │
     │   ├── data/
-    │   │   ├── gallery.ts              # static list/config of gallery images (captions, order)
+    │   │   ├── gallery.ts              # static list/config of gallery images (throwback + current, captions, order)
     │   │   └── videos.ts               # static or Supabase-driven list of Vimeo entries
     │   │
     │   └── utils.ts

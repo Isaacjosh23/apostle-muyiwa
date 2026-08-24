@@ -1,26 +1,225 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"); */
+
 @import "tailwindcss";
 
+/* ── ROOT TOKENS ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ─────────────────────────────────────
+     BRAND COLORS
+  ───────────────────────────────────── */
+
+  /* Primary — Walnut Brown */
+  --color-primary: #6b4f3b;
+  --color-primary-light: #8a6a4f;
+  --color-primary-dim: rgba(107, 79, 59, 0.18);
+  --color-primary-mist: rgba(107, 79, 59, 0.06);
+
+  /* Accent — Muted Gold */
+  --color-gold: #c9a66b;
+  --color-gold-light: #e3cda0;
+  --color-gold-dim: rgba(201, 166, 107, 0.18);
+  --color-gold-mist: rgba(201, 166, 107, 0.06);
+
+  /* Neutrals — Light */
+  --color-parchment: #f4efe7;
+  --color-warm-white: #fdfbf8;
+  --color-surface: #ffffff;
+
+  /* Neutrals — Dark */
+  --color-dark: #2b2622;
+  --color-dark-2: #3a332c;
+  --color-dark-overlay: rgba(43, 38, 34, 0.75);
+
+  /* Text */
+  --color-text-primary: #2b2622;
+  --color-text-body: #3a332c;
+  --color-text-muted: #6b6155;
+  --color-text-inverse: #f4efe7;
+  --color-text-inverse-muted: rgba(244, 239, 231, 0.5);
+
+  /* Status */
+  --color-success: #7a8b69;
+  --color-attention: #b5654a;
+
+  /* ─────────────────────────────────────
+     TYPOGRAPHY 
+  ───────────────────────────────────── */
+  /* --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif; */
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  /* ─────────────────────────────────────
+     SPACING SCALE
+  ───────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 96px;
+
+  /* ─────────────────────────────────────
+     BORDER RADIUS
+  ───────────────────────────────────── */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+
+  /* ─────────────────────────────────────
+     BORDERS
+  ───────────────────────────────────── */
+  --border-gold: 0.5px solid var(--color-gold);
+  --border-gold-dim: 0.5px solid var(--color-gold-dim);
+  --border-parchment: 0.5px solid var(--color-parchment);
+
+  /* ─────────────────────────────────────
+     SHADOWS
+  ───────────────────────────────────── */
+  --shadow-card: 0 8px 32px rgba(43, 38, 34, 0.12);
+  --shadow-card-lg: 0 16px 48px rgba(43, 38, 34, 0.2);
+  --shadow-lift: 0 4px 16px rgba(43, 38, 34, 0.08);
+
+  /* ─────────────────────────────────────
+     TRANSITIONS
+  ───────────────────────────────────── */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* ─────────────────────────────────────
+     Z-INDEX SCALE
+  ───────────────────────────────────── */
+  --z-base: 1;
+  --z-card: 10;
+  --z-nav: 800;
+  --z-modal: 1000;
+  --z-intro: 2000;
+
+  /* ─────────────────────────────────────
+     SECTION BACKGROUNDS
+  ───────────────────────────────────── */
+  --bg-hero: var(--color-dark);
+  --bg-videos: var(--color-warm-white);
+  --bg-gallery: var(--color-parchment);
+  --bg-letters: var(--color-warm-white);
+  --bg-cta: var(--color-dark-2);
+  --bg-footer: var(--color-dark);
+
+  /* Admin dashboard */
+  --bg-admin-sidebar: var(--color-dark-2);
+  --bg-admin-body: var(--color-parchment);
+  --bg-admin-card: var(--color-warm-white);
+  --bg-admin-table-row: var(--color-warm-white);
+  --bg-admin-table-alt: #f5f0e8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ─────────────────────────────────────
+   BASE RESETS
+───────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-parchment);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-primary);
+    line-height: 1.1;
+  }
+
+  p {
+    line-height: 1.7;
+    color: var(--color-text-body);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font-family: var(--font-sans);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+section,
+nav {
+  scroll-margin-top: 6.4rem;
+}
+
+/* ─────────────────────────────────────
+   CUSTOM UTILITIES
+───────────────────────────────────── */
+@layer utilities {
+  .gold-divider {
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--color-gold),
+      transparent
+    );
+  }
+}
+
+/* ─────────────────────────────────────
+   TAILWIND v4 THEME MAPPING
+───────────────────────────────────── */
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-parchment: var(--color-parchment);
+  --color-warm-white: var(--color-warm-white);
+  --color-surface: var(--color-surface);
+  --color-dark: var(--color-dark);
+  --color-dark-2: var(--color-dark-2);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-body: var(--color-text-body);
+  --color-text-muted: var(--color-text-muted);
+  --color-success: var(--color-success);
+  --color-attention: var(--color-attention);
 }
