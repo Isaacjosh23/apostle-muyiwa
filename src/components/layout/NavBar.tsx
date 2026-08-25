@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
 
-const COMPACT_THRESHOLD = 400;
+const COMPACT_THRESHOLD = 300;
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -105,7 +105,7 @@ export default function Navbar() {
                   className={`relative px-8 py-3 rounded-full font-sans text-[1.4rem] tracking-wide uppercase font-medium transition-colors duration-300 ${
                     isActive
                       ? "text-warm-white"
-                      : "text-gold hover:text-warm-white hover:bg-gold-light"
+                      : "text-warm-white hover:bg-gold-light"
                   }`}
                 >
                   {isActive && (

@@ -36,7 +36,7 @@ function MobileNav({ setMenuOpen }: MobileNavProps) {
               className={`px-5 py-3 font-sans text-xl font-medium tracking-wide uppercase transition-colors duration-300 ${
                 isActive
                   ? "text-warm-white bg-gold"
-                  : "text-gold hover:text-warm-white hover:bg-gold-light"
+                  : "text-warm-white hover:bg-gold-light"
               }`}
             >
               {link.label}
