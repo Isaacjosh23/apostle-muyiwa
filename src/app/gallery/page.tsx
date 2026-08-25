@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import GalleryTabs from "@/components/gallery/GalleryTabs";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
+import PageHero from "@/components/ui/PageHero";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import {
   galleryPhotos,
@@ -24,42 +25,37 @@ export default function GalleryPage() {
   };
 
   return (
-    <main className="min-h-screen bg-parchment pt-32 sm:pt-40 pb-20 px-5 sm:px-8">
-      <SectionWrapper>
-        <div className="text-center mb-10 sm:mb-14">
-          <p className="font-sans text-[1rem] font-medium sm:text-xl tracking-[0.25em] uppercase text-gold mb-3">
-            Moments Through The Years
-          </p>
-          <h1 className="font-serif text-4xl sm:text-5xl text-text-primary">
-            Gallery
-          </h1>
-        </div>
+    <main className="min-h-screen">
+      <PageHero eyebrow="Moments Through The Years" title="Gallery" />
+
+      <SectionWrapper className="px-6 pt-12 sm:pt-16">
+        <GalleryTabs active={activeTab} onChange={handleTabChange} />
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="max-w-6xl mx-auto"
+          >
+            <GalleryGrid
+              photos={photos}
+              onSelect={(_photo: GalleryPhoto, index) =>
+                setLightboxIndex(index)
+              }
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        <LightBox
+          photos={photos}
+          activeIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={setLightboxIndex}
+        />
       </SectionWrapper>
-
-      <GalleryTabs active={activeTab} onChange={handleTabChange} />
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="max-w-6xl mx-auto"
-        >
-          <GalleryGrid
-            photos={photos}
-            onSelect={(_photo: GalleryPhoto, index) => setLightboxIndex(index)}
-          />
-        </motion.div>
-      </AnimatePresence>
-
-      <LightBox
-        photos={photos}
-        activeIndex={lightboxIndex}
-        onClose={() => setLightboxIndex(null)}
-        onNavigate={setLightboxIndex}
-      />
     </main>
   );
 }
