@@ -59,7 +59,7 @@ export default function Hero() {
             href="/letters"
             className="flex items-center gap-2 text-2xl font-medium border border-gold text-gold hover:bg-gold hover:text-warm-white transitions-color duration-300 px-12 py-4 rounded-full"
           >
-            <span>Leave a Note</span>
+            <span>Leave A Note</span>
             <Icon type={Icons.Write} className="size-8" />
           </Link>
         </motion.div>
