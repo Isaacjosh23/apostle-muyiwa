@@ -231,4 +231,6 @@ nav {
   --color-text-muted: var(--color-text-muted);
   --color-success: var(--color-success);
   --color-attention: var(--color-attention);
+  --color-gallery: var(--color-parchment);
+  --color-videos: var(--color-warm-white);
 }

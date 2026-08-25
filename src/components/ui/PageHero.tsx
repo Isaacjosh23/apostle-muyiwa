@@ -10,7 +10,7 @@ interface PageHeroProps {
 
 export default function PageHero({ eyebrow, title, subtitle }: PageHeroProps) {
   return (
-    <section className="relative bg-dark min-h-[440px] flex items-center justify-center pt-[4rem] pb-[2rem] sm:pt-32 sm:pb-20 px-5 sm:px-8 overflow-hidden">
+    <section className="relative bg-dark min-h-[440px] flex items-center justify-center pt-16 pb-8 sm:pt-32 sm:pb-20 px-5 sm:px-8 overflow-hidden">
       <div className="absolute inset-0 bg-linear-to-b from-dark via-dark-2 to-dark pointer-events-none" />
 
       <motion.div
