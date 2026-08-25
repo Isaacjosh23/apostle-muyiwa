@@ -3,12 +3,10 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { letterSchema, LetterFormValues } from "@/lib/validation/letterSchema";
+import { useLetters } from "@/context/LettersContext";
 
-interface LetterFormProps {
-  onSuccess: () => void;
-}
-
-export default function LetterForm({ onSuccess }: LetterFormProps) {
+export default function LetterForm() {
+  const { submitLetter } = useLetters();
   const {
     register,
     handleSubmit,
@@ -19,18 +17,7 @@ export default function LetterForm({ onSuccess }: LetterFormProps) {
   });
 
   const onSubmit = async (data: LetterFormValues) => {
-    const response = await fetch("/api/letters", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      console.error("Letter submission failed", await response.text());
-    }
-
-    reset();
-    onSuccess();
+    if (await submitLetter(data)) reset();
   };
 
   return (

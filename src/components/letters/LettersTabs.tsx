@@ -1,20 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-export type LettersView = "read" | "write";
-
-interface LettersTabsProps {
-  active: LettersView;
-  onChange: (view: LettersView) => void;
-}
+import { LettersView, useLetters } from "@/context/LettersContext";
 
 const tabs: { key: LettersView; label: string }[] = [
   { key: "read", label: "Read Letters" },
   { key: "write", label: "Write A Letter" },
 ];
 
-export default function LettersTabs({ active, onChange }: LettersTabsProps) {
+export default function LettersTabs() {
+  const { activeView: active, setActiveView: onChange } = useLetters();
   return (
     <div className="flex justify-center mb-10 sm:mb-14">
       <div className="relative flex items-center gap-1 p-1 rounded-full border border-gold/30 bg-surface">

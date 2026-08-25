@@ -3,23 +3,15 @@
 import { useState, useRef, useEffect } from "react";
 import { Icon } from "../ui/icons";
 import { Icons } from "../ui/icons/_types";
-
-export type SortOrder = "recent" | "oldest";
-
-interface LettersSortFilterProps {
-  value: SortOrder;
-  onChange: (order: SortOrder) => void;
-}
+import { SortOrder, useLetters } from "@/context/LettersContext";
 
 const options: { key: SortOrder; label: string }[] = [
   { key: "recent", label: "Most Recent" },
   { key: "oldest", label: "Oldest First" },
 ];
 
-export default function LettersSortFilter({
-  value,
-  onChange,
-}: LettersSortFilterProps) {
+export default function LettersSortFilter() {
+  const { sortOrder: value, setSortOrder: onChange } = useLetters();
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
