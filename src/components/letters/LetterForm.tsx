@@ -19,11 +19,16 @@ export default function LetterForm({ onSuccess }: LetterFormProps) {
   });
 
   const onSubmit = async (data: LetterFormValues) => {
-    // Placeholder — replace with POST /api/letters (status: "pending")
-    // once the Supabase route handler exists (PRD §11.1). No identity
-    // fields are collected or sent — letters are fully anonymous.
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    console.log("Letter submitted (pending):", data);
+    const response = await fetch("/api/letters", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      console.error("Letter submission failed", await response.text());
+    }
+
     reset();
     onSuccess();
   };

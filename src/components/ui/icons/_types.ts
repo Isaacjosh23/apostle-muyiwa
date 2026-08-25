@@ -3,6 +3,7 @@ export interface IconProps {
 }
 
 export const Icons = {
+  ArrowDown: "arrow-down",
   CheckMark: "check-mark",
   Close: "close",
   Email: "email",
