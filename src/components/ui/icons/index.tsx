@@ -1,4 +1,5 @@
 import { IconProps, Icons } from "./_types";
+import CheckMarkIcon from "./checkmark";
 import CloseIcon from "./close";
 import MenuIcon from "./menu";
 import NextArrow from "./next-arrow";
@@ -14,6 +15,9 @@ export function Icon({ type, className }: Props) {
   const props = { className };
 
   switch (type) {
+    case Icons.CheckMark:
+      return <CheckMarkIcon {...props} />;
+
     case Icons.Close:
       return <CloseIcon {...props} />;
 

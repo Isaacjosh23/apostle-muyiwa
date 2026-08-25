@@ -233,4 +233,5 @@ nav {
   --color-attention: var(--color-attention);
   --color-gallery: var(--color-parchment);
   --color-videos: var(--color-warm-white);
+  --color-cta: var(--color-dark-2);
 }
