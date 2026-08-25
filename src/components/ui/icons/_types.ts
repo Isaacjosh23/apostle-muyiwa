@@ -5,8 +5,10 @@ export interface IconProps {
 export const Icons = {
   Close: "close",
   Menu: "menu",
-  NextArrow: "next-arrow",
+  Play: "play",
   PreviousArrow: "previous-arrow",
+  NextArrow: "next-arrow",
+  Write: "write",
 } as const;
 
 export type Icons = (typeof Icons)[keyof typeof Icons];

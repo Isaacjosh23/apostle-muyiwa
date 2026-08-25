@@ -28,7 +28,7 @@ export default function GalleryPage() {
     <main className="min-h-screen">
       <PageHero eyebrow="Moments Through The Years" title="Gallery" />
 
-      <SectionWrapper className="px-6 pt-12 sm:pt-16">
+      <SectionWrapper className="px-6 py-12 sm:py-16">
         <GalleryTabs active={activeTab} onChange={handleTabChange} />
 
         <AnimatePresence mode="wait">
