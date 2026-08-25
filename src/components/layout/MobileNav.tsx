@@ -8,16 +8,21 @@ import { useEffect, useRef } from "react";
 
 interface MobileNavProps {
   setMenuOpen: (open: boolean) => void;
+  triggerRef: React.RefObject<HTMLButtonElement | null>;
 }
 
-function MobileNav({ setMenuOpen }: MobileNavProps) {
+function MobileNav({ setMenuOpen, triggerRef }: MobileNavProps) {
   const pathname = usePathname();
 
   const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent | TouchEvent) {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      const clickedInsideNav = navRef.current?.contains(target);
+      const clickedTrigger = triggerRef.current?.contains(target);
+
+      if (!clickedInsideNav && !clickedTrigger) {
         setMenuOpen(false);
       }
     }
@@ -32,7 +37,7 @@ function MobileNav({ setMenuOpen }: MobileNavProps) {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleClickOutside);
     };
-  }, [setMenuOpen]);
+  }, [setMenuOpen, triggerRef]);
 
   return (
     <motion.div

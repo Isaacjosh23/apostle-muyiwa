@@ -26,7 +26,7 @@ export default function PageHero({ eyebrow, title, subtitle }: PageHeroProps) {
           {title}
         </h1>
         {subtitle && (
-          <p className="font-serif italic text-lg sm:text-xl text-warm-white/70 max-w-xl mx-auto">
+          <p className="font-serif italic text-xl text-warm-white leading-10 max-w-xl mx-auto">
             {subtitle}
           </p>
         )}

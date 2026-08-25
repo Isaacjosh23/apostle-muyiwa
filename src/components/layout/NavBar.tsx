@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/lib/data/nav";
@@ -14,6 +14,7 @@ const COMPACT_THRESHOLD = 300;
 
 export default function Navbar() {
   const pathname = usePathname();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [compact, setCompact] = useState(false);
@@ -159,6 +160,7 @@ export default function Navbar() {
           </button> */}
 
           <button
+            ref={menuButtonRef}
             onClick={() => setMenuOpen((v) => !v)}
             className="sm:hidden relative text-warm-white size-10"
             aria-label="Toggle menu"
@@ -194,7 +196,9 @@ export default function Navbar() {
 
       {/* Mobile dropdown menu */}
       <AnimatePresence>
-        {menuOpen && <MobileNav setMenuOpen={setMenuOpen} />}
+        {menuOpen && (
+          <MobileNav setMenuOpen={setMenuOpen} triggerRef={menuButtonRef} />
+        )}
       </AnimatePresence>
     </>
   );
