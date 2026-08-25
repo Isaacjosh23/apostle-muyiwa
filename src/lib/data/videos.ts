@@ -1,4 +1,4 @@
-import { Video } from "@/types/Videos";
+import { Video } from "@/types/videos";
 
 // Placeholder Vimeo ID shared across all entries for now — swap in each
 // real per-testimony Vimeo ID once videos are uploaded. Thumbnails are also

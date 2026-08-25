@@ -1,6 +1,6 @@
 "use client";
 
-import { Video } from "@/types/Videos";
+import { Video } from "@/types/videos";
 import { motion } from "framer-motion";
 import { Icon } from "../ui/icons";
 import { Icons } from "../ui/icons/_types";

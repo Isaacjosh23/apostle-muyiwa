@@ -8,6 +8,7 @@ export const Icons = {
   Play: "play",
   PreviousArrow: "previous-arrow",
   NextArrow: "next-arrow",
+  Write: "write",
 } as const;
 
 export type Icons = (typeof Icons)[keyof typeof Icons];

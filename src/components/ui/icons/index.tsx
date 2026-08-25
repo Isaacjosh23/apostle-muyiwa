@@ -4,6 +4,7 @@ import MenuIcon from "./menu";
 import NextArrow from "./next-arrow";
 import PlayIcon from "./play";
 import PreviousIcon from "./prev-arrow";
+import WriteIcon from "./write";
 
 interface Props extends IconProps {
   type: Icons;
@@ -27,6 +28,9 @@ export function Icon({ type, className }: Props) {
 
     case Icons.NextArrow:
       return <NextArrow {...props} />;
+
+    case Icons.Write:
+      return <WriteIcon {...props} />;
 
     default:
       return null;

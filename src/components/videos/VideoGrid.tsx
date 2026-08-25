@@ -3,7 +3,7 @@
 import { useState } from "react";
 import VideoCard from "./VideoCard";
 import VideoModal from "./VideoModal";
-import { Video } from "@/types/Videos";
+import { Video } from "@/types/videos";
 
 interface VideoGridProps {
   videos: Video[];

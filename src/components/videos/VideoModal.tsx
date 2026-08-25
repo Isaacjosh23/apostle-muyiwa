@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "../ui/icons";
 import { Icons } from "../ui/icons/_types";
-import { Video } from "@/types/Videos";
+import { Video } from "@/types/videos";
 
 interface VideoModalProps {
   video: Video | null;

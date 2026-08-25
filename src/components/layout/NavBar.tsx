@@ -123,11 +123,32 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            <Link
+              href="/letters"
+              className={`flex items-center gap-2 relative text-[1.4rem] text-warm-white font-sans font-medium px-8 py-3 rounded-full uppercase transition-colors duration-300 border border-gold hover:bg-gold ${pathname === "/letters" ? "bg-gold" : "bg-transparent"}`}
+            >
+              {pathname === "/letters" && (
+                <motion.span
+                  layoutId="nav-active-pill"
+                  className="absolute inset-0 -z-10 rounded-full bg-gold"
+                  transition={{
+                    type: "spring",
+                    stiffness: 350,
+                    damping: 30,
+                  }}
+                />
+              )}
+
+              <span className="relative z-10">Leave a Note</span>
+
+              <Icon type={Icons.Write} className="size-8" />
+            </Link>
           </nav>
 
-          <button
+          {/* <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="sm:hidden text-warm-white"
+            className="sm:hidden text-warm-white flex flex-col justify-center items-center w-16 h-16 gap-1.5 cursor-pointer"
             aria-label="Toggle menu"
           >
             {menuOpen ? (
@@ -135,6 +156,38 @@ export default function Navbar() {
             ) : (
               <Icon type={Icons.Menu} className="size-10" />
             )}
+          </button> */}
+
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="sm:hidden relative text-warm-white size-10"
+            aria-label="Toggle menu"
+          >
+            <AnimatePresence initial={false} mode="wait">
+              {menuOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ opacity: 0, rotate: -90, scale: 0.6 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.6 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <Icon type={Icons.Close} className="size-10" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ opacity: 0, rotate: 90, scale: 0.6 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: -90, scale: 0.6 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <Icon type={Icons.Menu} className="size-10" />
+                </motion.span>
+              )}
+            </AnimatePresence>
           </button>
         </motion.div>
       </motion.header>

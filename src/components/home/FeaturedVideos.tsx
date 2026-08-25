@@ -6,7 +6,7 @@ import { featuredVideos } from "@/lib/data/videos";
 import VideoCard from "@/components/videos/VideoCard";
 import VideoModal from "@/components/videos/VideoModal";
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import { Video } from "@/types/Videos";
+import { Video } from "@/types/videos";
 
 export default function FeaturedVideos() {
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
