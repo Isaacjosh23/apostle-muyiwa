@@ -1,10 +1,12 @@
 import { IconProps, Icons } from "./_types";
 import CheckMarkIcon from "./checkmark";
 import CloseIcon from "./close";
+import EmailIcon from "./email";
 import MenuIcon from "./menu";
 import NextArrow from "./next-arrow";
 import PlayIcon from "./play";
 import PreviousIcon from "./prev-arrow";
+import RightArrowIcon from "./right-arrow";
 import WriteIcon from "./write";
 
 interface Props extends IconProps {
@@ -21,6 +23,9 @@ export function Icon({ type, className }: Props) {
     case Icons.Close:
       return <CloseIcon {...props} />;
 
+    case Icons.Email:
+      return <EmailIcon {...props} />;
+
     case Icons.Menu:
       return <MenuIcon {...props} />;
 
@@ -32,6 +37,9 @@ export function Icon({ type, className }: Props) {
 
     case Icons.NextArrow:
       return <NextArrow {...props} />;
+
+    case Icons.RightArrow:
+      return <RightArrowIcon {...props} />;
 
     case Icons.Write:
       return <WriteIcon {...props} />;

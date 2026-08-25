@@ -5,10 +5,12 @@ export interface IconProps {
 export const Icons = {
   CheckMark: "check-mark",
   Close: "close",
+  Email: "email",
   Menu: "menu",
   Play: "play",
   PreviousArrow: "previous-arrow",
   NextArrow: "next-arrow",
+  RightArrow: "arrow-right",
   Write: "write",
 } as const;
 
