@@ -1,4 +1,5 @@
 import FeaturedImages from "@/components/home/FeaturedImages";
+import FeaturedVideos from "@/components/home/FeaturedVideos";
 import Hero from "@/components/home/Hero";
 
 export default function Home() {
@@ -7,6 +8,8 @@ export default function Home() {
       <Hero />
 
       <FeaturedImages />
+
+      <FeaturedVideos />
     </main>
   );
 }
