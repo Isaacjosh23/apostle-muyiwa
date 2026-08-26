@@ -1,28 +1,26 @@
 "use client";
 
-import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import LettersTabs, { LettersView } from "@/components/letters/LettersTabs";
+import LettersTabs from "@/components/letters/LettersTabs";
 import LetterList from "@/components/letters/LetterList";
 import LetterForm from "@/components/letters/LetterForm";
 import LetterModal from "@/components/letters/LetterModal";
 import Toast from "@/components/ui/Toast";
-import { approvedLetters } from "@/lib/data/letters";
-import { Letter } from "@/types/letters";
+import LettersSortFilter from "@/components/letters/LetterSortFilter";
+import { LettersProvider, useLetters } from "@/context/LettersContext";
 
 export default function LettersPage() {
-  const [activeView, setActiveView] = useState<LettersView>("read");
-  const [activeLetter, setActiveLetter] = useState<Letter | null>(null);
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  return (
+    <LettersProvider>
+      <LettersPageContent />
+    </LettersProvider>
+  );
+}
 
-  const handleSubmitSuccess = () => {
-    setToastMessage(
-      "Your letter has been sent. Thank you for sharing your heart.",
-    );
-    setActiveView("read");
-  };
+function LettersPageContent() {
+  const { activeView, loading } = useLetters();
 
   return (
     <main className="min-h-screen bg-parchment">
@@ -32,8 +30,8 @@ export default function LettersPage() {
         subtitle="Messages from the sons and daughters, mentees, and members from all over the globe."
       />
 
-      <div className="py-12 sm:py-16 px-6">
-        <LettersTabs active={activeView} onChange={setActiveView} />
+      <div className="pt-12 sm:pt-16">
+        <LettersTabs />
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -45,25 +43,28 @@ export default function LettersPage() {
           >
             {activeView === "read" ? (
               <SectionWrapper>
-                <LetterList
-                  letters={approvedLetters}
-                  onReadMore={setActiveLetter}
-                />
+                <div className="max-w-5xl mx-auto flex justify-end mb-6">
+                  <LettersSortFilter />
+                </div>
+                {loading ? (
+                  <p className="text-center font-sans text-[1.4rem] text-text-muted py-10">
+                    Loading letters…
+                  </p>
+                ) : (
+                  <LetterList />
+                )}
               </SectionWrapper>
             ) : (
               <SectionWrapper>
-                <LetterForm onSuccess={handleSubmitSuccess} />
+                <LetterForm />
               </SectionWrapper>
             )}
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <LetterModal
-        letter={activeLetter}
-        onClose={() => setActiveLetter(null)}
-      />
-      <Toast message={toastMessage} onDismiss={() => setToastMessage(null)} />
+      <LetterModal />
+      <Toast />
     </main>
   );
 }

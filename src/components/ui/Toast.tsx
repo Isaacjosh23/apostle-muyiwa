@@ -5,32 +5,25 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "./icons";
 import { Icons } from "./icons/_types";
+import { useLetters } from "@/context/LettersContext";
 
-interface ToastProps {
-  message: string | null;
-  onDismiss: () => void;
-  duration?: number;
-}
+export default function Toast({ duration = 4000 }: { duration?: number }) {
+  const { toastMessage, dismissToast } = useLetters();
 
-export default function Toast({
-  message,
-  onDismiss,
-  duration = 4000,
-}: ToastProps) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    if (!message) return;
-    const timer = setTimeout(onDismiss, duration);
+    if (!toastMessage) return;
+    const timer = setTimeout(dismissToast, duration);
     return () => clearTimeout(timer);
-  }, [message, duration, onDismiss]);
+  }, [toastMessage, duration, dismissToast]);
 
   if (!mounted) return null;
 
   const content = (
     <AnimatePresence>
-      {message && (
+      {toastMessage && (
         <motion.div
           initial={{ opacity: 0, y: -16, x: 16 }}
           animate={{ opacity: 1, y: 0, x: 0 }}
@@ -42,10 +35,10 @@ export default function Toast({
             <Icon type={Icons.CheckMark} className="size-10 text-success" />
           </div>
           <p className="font-sans text-[1.3rem] text-warm-white leading-snug">
-            {message}
+            {toastMessage}
           </p>
           <button
-            onClick={onDismiss}
+            onClick={dismissToast}
             aria-label="Dismiss"
             className="ml-auto shrink-0 text-warm-white/60 hover:text-warm-white transition-colors"
           >

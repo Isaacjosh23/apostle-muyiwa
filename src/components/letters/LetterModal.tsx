@@ -5,14 +5,11 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "../ui/icons";
 import { Icons } from "../ui/icons/_types";
-import { Letter } from "@/types/letters";
+import { useLetters } from "@/context/LettersContext";
 
-interface LetterModalProps {
-  letter: Letter | null;
-  onClose: () => void;
-}
-
-export default function LetterModal({ letter, onClose }: LetterModalProps) {
+export default function LetterModal() {
+  const { activeLetter: letter, setActiveLetter } = useLetters();
+  const onClose = () => setActiveLetter(null);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -39,7 +36,7 @@ export default function LetterModal({ letter, onClose }: LetterModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-dark/80 backdrop-blur-sm px-4 sm:px-8 py-10"
+          className="fixed inset-0 z-9999 flex items-center justify-center bg-dark/80 backdrop-blur-sm px-4 sm:px-8 py-10"
           onClick={onClose}
         >
           <motion.div

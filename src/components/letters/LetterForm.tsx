@@ -3,12 +3,10 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { letterSchema, LetterFormValues } from "@/lib/validation/letterSchema";
+import { useLetters } from "@/context/LettersContext";
 
-interface LetterFormProps {
-  onSuccess: () => void;
-}
-
-export default function LetterForm({ onSuccess }: LetterFormProps) {
+export default function LetterForm() {
+  const { submitLetter } = useLetters();
   const {
     register,
     handleSubmit,
@@ -19,13 +17,7 @@ export default function LetterForm({ onSuccess }: LetterFormProps) {
   });
 
   const onSubmit = async (data: LetterFormValues) => {
-    // Placeholder — replace with POST /api/letters (status: "pending")
-    // once the Supabase route handler exists (PRD §11.1). No identity
-    // fields are collected or sent — letters are fully anonymous.
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    console.log("Letter submitted (pending):", data);
-    reset();
-    onSuccess();
+    if (await submitLetter(data)) reset();
   };
 
   return (
