@@ -2,20 +2,17 @@
 
 import { Letter } from "@/types/letters";
 import { motion } from "framer-motion";
+import { useLetters } from "@/context/LettersContext";
 
 const TRUNCATE_LENGTH = 220;
 
 interface LetterCardProps {
   letter: Letter;
   index?: number;
-  onReadMore: (letter: Letter) => void;
 }
 
-export default function LetterCard({
-  letter,
-  index = 0,
-  onReadMore,
-}: LetterCardProps) {
+export default function LetterCard({ letter, index = 0 }: LetterCardProps) {
+  const { setActiveLetter } = useLetters();
   const isLong = letter.message.length > TRUNCATE_LENGTH;
   const preview = isLong
     ? `${letter.message.slice(0, TRUNCATE_LENGTH).trim()}…`
@@ -37,7 +34,7 @@ export default function LetterCard({
       </p>
       {isLong && (
         <button
-          onClick={() => onReadMore(letter)}
+          onClick={() => setActiveLetter(letter)}
           className="mt-4 self-start font-sans text-[1.2rem] uppercase underline cursor-pointer hover:no-underline tracking-wide text-primary hover:text-primary-light transition-colors"
         >
           Read more
