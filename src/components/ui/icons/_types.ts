@@ -12,6 +12,7 @@ export const Icons = {
   PreviousArrow: "previous-arrow",
   NextArrow: "next-arrow",
   RightArrow: "arrow-right",
+  Search: "search",
   Write: "write",
 } as const;
 
