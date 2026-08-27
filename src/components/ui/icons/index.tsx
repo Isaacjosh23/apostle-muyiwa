@@ -8,6 +8,7 @@ import NextArrow from "./next-arrow";
 import PlayIcon from "./play";
 import PreviousIcon from "./prev-arrow";
 import RightArrowIcon from "./right-arrow";
+import SearchIcon from "./search";
 import WriteIcon from "./write";
 
 interface Props extends IconProps {
@@ -44,6 +45,9 @@ export function Icon({ type, className }: Props) {
 
     case Icons.RightArrow:
       return <RightArrowIcon {...props} />;
+
+    case Icons.Search:
+      return <SearchIcon {...props} />;
 
     case Icons.Write:
       return <WriteIcon {...props} />;

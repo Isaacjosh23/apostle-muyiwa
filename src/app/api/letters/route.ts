@@ -12,6 +12,7 @@ export async function GET() {
     .order("created_at", { ascending: false });
 
   if (error) {
+    console.error("GET /api/letters failed:", error);
     return NextResponse.json(
       { error: "Failed to load letters" },
       { status: 500 },
@@ -41,11 +42,23 @@ export async function POST(request: Request) {
   });
 
   if (error) {
+    console.error("POST /api/letters failed:", error);
     return NextResponse.json(
       { error: "Failed to submit letter" },
       { status: 500 },
     );
   }
+
+  const channel = supabase.channel("letters-feed");
+  await new Promise<void>((resolve) => {
+    channel.subscribe((status) => {
+      if (status === "SUBSCRIBED") {
+        channel.send({ type: "broadcast", event: "changed", payload: {} });
+        resolve();
+      }
+    });
+  });
+  supabase.removeChannel(channel);
 
   return NextResponse.json({ success: true }, { status: 201 });
 }

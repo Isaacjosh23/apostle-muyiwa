@@ -29,7 +29,7 @@ export default function Toast({ duration = 4000 }: { duration?: number }) {
           animate={{ opacity: 1, y: 0, x: 0 }}
           exit={{ opacity: 0, y: -16, x: 16 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="fixed top-5 right-5 z-[9999] max-w-xs bg-dark text-warm-white border border-gold/30 rounded-lg shadow-lg px-5 py-4 flex items-start gap-3"
+          className="fixed top-5 right-5 z-[9999] max-w-lg bg-dark text-warm-white border border-gold/30 rounded-lg shadow-lg px-5 py-4 flex items-start gap-3"
         >
           <div className="mt-0.5 shrink-0 size-5 rounded-full bg-success/20 flex items-center justify-center">
             <Icon type={Icons.CheckMark} className="size-10 text-success" />

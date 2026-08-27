@@ -147,18 +147,6 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          {/* <button
-            onClick={() => setMenuOpen((v) => !v)}
-            className="sm:hidden text-warm-white flex flex-col justify-center items-center w-16 h-16 gap-1.5 cursor-pointer"
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? (
-              <Icon type={Icons.Close} className="size-10" />
-            ) : (
-              <Icon type={Icons.Menu} className="size-10" />
-            )}
-          </button> */}
-
           <button
             ref={menuButtonRef}
             onClick={() => setMenuOpen((v) => !v)}

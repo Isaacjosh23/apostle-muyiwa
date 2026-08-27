@@ -30,7 +30,7 @@ function LettersPageContent() {
         subtitle="Messages from the sons and daughters, mentees, and members from all over the globe."
       />
 
-      <div className="pt-12 sm:pt-16">
+      <div className="py-12 sm:py-16 px-8 sm:px-0">
         <LettersTabs />
 
         <AnimatePresence mode="wait">

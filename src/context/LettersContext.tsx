@@ -11,6 +11,7 @@ import {
 } from "react";
 import { Letter } from "@/types/letters";
 import { LetterFormValues } from "@/lib/validation/letterSchema";
+import { createClient } from "@/lib/supabase/client";
 
 export type LettersView = "read" | "write";
 export type SortOrder = "recent" | "oldest";
@@ -57,6 +58,21 @@ export function LettersProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     loadLetters();
+  }, [loadLetters]);
+
+  useEffect(() => {
+    const supabase = createClient();
+
+    const channel = supabase
+      .channel("letters-feed")
+      .on("broadcast", { event: "changed" }, () => {
+        loadLetters();
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, [loadLetters]);
 
   const sortedLetters = useMemo(
