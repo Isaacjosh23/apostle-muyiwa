@@ -46,7 +46,7 @@ function MobileNav({ setMenuOpen, triggerRef }: MobileNavProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -12 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="fixed  top-36 left-4 right-4 sm:hidden z-950 rounded-xl overflow-hidden border border-white/10 shadow-lg"
+      className="fixed top-36 left-4 right-4 sm:hidden z-950 rounded-xl overflow-hidden border border-white/10 shadow-lg"
       style={{
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
@@ -55,7 +55,7 @@ function MobileNav({ setMenuOpen, triggerRef }: MobileNavProps) {
     >
       <div className="absolute inset-0 rounded-[inherit] pointer-events-none bg-linear-to-b from-white/10 to-transparent" />
 
-      <nav className="relative flex flex-col gap-1.5">
+      <nav className="relative flex flex-col gap-3.5">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
           return (
