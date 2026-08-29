@@ -46,7 +46,7 @@ export default function LetterActions({
     <button
       onClick={() => onRevert(revertTo)}
       disabled={busy}
-      className="px-4 py-1.5 rounded-full font-sans text-[1.3rem] font-medium text-primary border border-attention hover:bg-attention hover:text-warm-white transition-colors disabled:opacity-50 cursor-pointer"
+      className={`px-4 py-1.5 rounded-full font-sans text-[1.3rem] font-medium border hover:text-warm-white transition-colors duration-300 disabled:opacity-50 cursor-pointer ${revertTo === "approved" ? "hover:bg-success border-success text-success" : "hover:bg-attention border-attention text-attention"}`}
     >
       {revertLabel}
     </button>

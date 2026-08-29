@@ -7,6 +7,7 @@ export const Icons = {
   CheckMark: "check-mark",
   Close: "close",
   Email: "email",
+  Exit: "exit",
   Menu: "menu",
   Play: "play",
   PreviousArrow: "previous-arrow",
