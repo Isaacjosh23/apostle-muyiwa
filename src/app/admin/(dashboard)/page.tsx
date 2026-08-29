@@ -23,7 +23,7 @@ export default async function AdminDashboardPage() {
       </p>
 
       {error && (
-        <p className="font-sans text-[1.3rem] text-attention mb-6">
+        <p className="font-sans text-[1.5rem] font-normal text-attention mb-6">
           Failed to load stats.
         </p>
       )}

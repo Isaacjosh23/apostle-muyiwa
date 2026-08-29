@@ -3,6 +3,7 @@ import ArrowDownIcon from "./arrow-down";
 import CheckMarkIcon from "./checkmark";
 import CloseIcon from "./close";
 import EmailIcon from "./email";
+import ExitIcon from "./exit";
 import MenuIcon from "./menu";
 import NextArrow from "./next-arrow";
 import PlayIcon from "./play";
@@ -30,6 +31,9 @@ export function Icon({ type, className }: Props) {
 
     case Icons.Email:
       return <EmailIcon {...props} />;
+
+    case Icons.Exit:
+      return <ExitIcon {...props} />;
 
     case Icons.Menu:
       return <MenuIcon {...props} />;
