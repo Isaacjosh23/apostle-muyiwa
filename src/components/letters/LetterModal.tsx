@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "../ui/icons";
@@ -9,7 +9,7 @@ import { useLetters } from "@/context/LettersContext";
 
 export default function LetterModal() {
   const { activeLetter: letter, setActiveLetter } = useLetters();
-  const onClose = () => setActiveLetter(null);
+  const onClose = useCallback(() => setActiveLetter(null), [setActiveLetter]);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -58,7 +58,7 @@ export default function LetterModal() {
             <h3 className="font-serif font-medium text-2xl sm:text-3xl text-primary mb-5 pr-8">
               {letter.title}
             </h3>
-            <p className="font-serif text-xl text-body leading-relaxed whitespace-pre-line">
+            <p className="font-serif text-xl sm:text-2xl text-body leading-relaxed whitespace-pre-line">
               &ldquo;{letter.message}&rdquo;
             </p>
           </motion.div>

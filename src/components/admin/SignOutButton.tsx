@@ -18,7 +18,7 @@ export default function SignOutButton() {
   return (
     <button
       onClick={handleSignOut}
-      className="w-full px-4 py-2.5 rounded-md font-sans text-[1.3rem] text-warm-white/60 hover:text-warm-white hover:bg-white/5 transition-colors text-left flex items-center gap-4 cursor-pointer"
+      className="w-full px-4 py-2.5 rounded-md font-sans text-[1.5rem] text-warm-white/60 hover:text-warm-white hover:bg-white/5 transition-colors text-left flex items-center gap-4 cursor-pointer"
     >
       <Icon type={Icons.Exit} className="size-[2.2rem]" />
       <span>Sign Out</span>
