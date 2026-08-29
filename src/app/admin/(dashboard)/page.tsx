@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { createAdminClient } from "@/lib/supabase/admin";
+import DashboardRealtimeRefresher from "@/components/admin/DashboardRealtimeRefresher";
 
 export default async function AdminDashboardPage() {
   const supabase = createAdminClient();
   const { data, error } = await supabase.from("letters").select("status");
+
+  if (error) {
+    console.error("Dashboard stats query failed:", error);
+  }
 
   const counts = { pending: 0, approved: 0, declined: 0 };
   if (data) {
@@ -15,6 +20,8 @@ export default async function AdminDashboardPage() {
 
   return (
     <div>
+      <DashboardRealtimeRefresher />
+
       <h1 className="font-serif text-3xl text-text-primary font-medium mb-2">
         Dashboard
       </h1>
@@ -23,7 +30,7 @@ export default async function AdminDashboardPage() {
       </p>
 
       {error && (
-        <p className="font-sans text-[1.3rem] text-attention mb-6">
+        <p className="font-sans text-[1.5rem] font-normal text-attention mb-6">
           Failed to load stats.
         </p>
       )}

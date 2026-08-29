@@ -70,8 +70,11 @@ export function LettersProvider({ children }: { children: ReactNode }) {
       })
       .subscribe();
 
+    const interval = setInterval(loadLetters, 20000);
+
     return () => {
       supabase.removeChannel(channel);
+      clearInterval(interval);
     };
   }, [loadLetters]);
 

@@ -26,10 +26,10 @@ export default function LetterCard({ letter, index = 0 }: LetterCardProps) {
       transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
       className="bg-surface border border-gold/20 rounded-lg p-6 sm:p-7 flex flex-col"
     >
-      <h3 className="font-serif text-2xl sm:text-2xl text-primary font-medium mb-3">
+      <h3 className="font-serif text-2xl sm:text-3xl text-primary font-medium mb-3">
         {letter.title}
       </h3>
-      <p className="font-serif text-xl text-body leading-relaxed">
+      <p className="font-serif text-xl sm:text-2xl text-body leading-relaxed">
         &ldquo;{preview}&rdquo;
       </p>
       {isLong && (
