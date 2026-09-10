@@ -30,19 +30,13 @@ export default function HeroCarousel() {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
         >
-          {slide.src ? (
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              priority={index === 0}
-              className="object-cover"
-            />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-primary via-dark-2 to-dark flex items-center justify-center">
-              <span className="font-sans text-xs sm:text-sm tracking-[0.2em] uppercase text-warm-white/30"></span>
-            </div>
-          )}
+          <Image
+            src={slide.src}
+            alt={slide.alt}
+            fill
+            priority={index === 0}
+            className="object-cover"
+          />
         </motion.div>
       </AnimatePresence>
 
