@@ -7,36 +7,34 @@ export interface HeroSlide {
 export const heroSlides: HeroSlide[] = [
   {
     alt: "Daddy ministering",
-    src: "/hero/hero-1.jpg",
+    src: "/hero/h-1.jpg",
   },
-
   {
-    alt: "Daddy with mentees",
-    src: "/hero/hero-2.jpg",
+    alt: "Daddy ministering",
+    src: "/hero/h-2.jpg",
   },
-
   {
-    alt: "Daddy in prayer",
-    src: "/hero/hero-3.jpg",
+    alt: "Daddy ministering",
+    src: "/hero/h-3.jpg",
   },
-
   {
-    alt: "Daddy portrait",
-    src: "/hero/hero-7.jpg",
+    alt: "Daddy ministering",
+    src: "/hero/h-4.jpg",
   },
-
   {
-    alt: "Daddy at church",
-    src: "/hero/hero-4.jpg",
+    alt: "Daddy ministering",
+    src: "/hero/h-5.jpg",
   },
-
   {
-    alt: "Daddy with family",
-    src: "/hero/hero-5.jpg",
+    alt: "Daddy ministering",
+    src: "/hero/h-6.jpg",
   },
-
   {
-    alt: "Daddy portrait",
-    src: "/hero/hero-6.jpg",
+    alt: "Daddy ministering",
+    src: "/hero/h-7.jpg",
+  },
+  {
+    alt: "Daddy ministering",
+    src: "/hero/h-8.jpg",
   },
 ];

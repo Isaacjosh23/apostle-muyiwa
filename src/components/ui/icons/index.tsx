@@ -1,5 +1,6 @@
 import { IconProps, Icons } from "./_types";
 import ArrowDownIcon from "./arrow-down";
+import ArrowUpIcon from "./arrow-up";
 import CheckMarkIcon from "./checkmark";
 import CloseIcon from "./close";
 import EmailIcon from "./email";
@@ -22,6 +23,9 @@ export function Icon({ type, className }: Props) {
   switch (type) {
     case Icons.ArrowDown:
       return <ArrowDownIcon {...props} />;
+
+    case Icons.ArrowUp:
+      return <ArrowUpIcon {...props} />;
 
     case Icons.CheckMark:
       return <CheckMarkIcon {...props} />;
