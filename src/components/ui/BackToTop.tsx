@@ -38,14 +38,16 @@ export default function BackToTop() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.8 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 z-[900] w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-white/10 flex items-center justify-center shadow-lg"
+          className="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 z-[900] w-14 h-14 rounded-full border border-gold/10 flex items-center justify-center shadow-lg cursor-pointer hover:-translate-y-3 transition-all duration-300 bg-dark-2/50 hover:bg-gold hover:text-surface"
           style={{
             backdropFilter: "blur(16px)",
             WebkitBackdropFilter: "blur(16px)",
-            backgroundColor: "rgba(43, 38, 34, 0.5)",
           }}
         >
-          <Icon type={Icons.ArrowUp} className="size-5 sm:size-6 text-gold" />
+          <Icon
+            type={Icons.ArrowUp}
+            className="size-8 text-gold hover:text-surface"
+          />
         </motion.button>
       )}
     </AnimatePresence>
