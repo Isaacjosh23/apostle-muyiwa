@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import IntroGate from "@/components/intro/IntroGate";
 import Navbar from "./NavBar";
+import BackToTop from "../ui/BackToTop";
 
 export default function SiteChrome({
   children,
@@ -21,6 +22,7 @@ export default function SiteChrome({
       <IntroGate />
       <Navbar />
       {children}
+      <BackToTop />
     </>
   );
 }
