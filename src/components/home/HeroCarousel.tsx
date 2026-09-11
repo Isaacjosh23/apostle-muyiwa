@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { heroSlides } from "@/lib/data/hero";
 
-const SLIDE_DURATION = 8000;
+const SLIDE_DURATION = 5000;
 
 export default function HeroCarousel() {
   const [index, setIndex] = useState(0);
