@@ -113,12 +113,12 @@ export const galleryPhotos: GalleryPhoto[] = [
   // Current
   {
     id: "current-1",
-    src: "/gallery/current/current-1.jpg",
+    src: "/gallery/current/c-1.jpg",
     category: "current",
   },
   {
     id: "current-2",
-    src: "/gallery/current/current-2.jpg",
+    src: "/gallery/current/c-2.jpg",
     category: "current",
   },
   {

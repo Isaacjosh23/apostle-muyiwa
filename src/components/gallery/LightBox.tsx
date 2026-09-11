@@ -67,7 +67,7 @@ export default function Lightbox({
           <button
             onClick={onClose}
             aria-label="Close"
-            className="absolute top-5 right-5 sm:top-6 sm:right-6 text-warm-white/80 hover:text-warm-white transition-colors p-2"
+            className="absolute top-5 right-5 sm:top-6 sm:right-6 text-warm-white/80 hover:text-warm-white transition-colors p-2 cursor-pointer"
           >
             <Icon type={Icons.Close} className="size-8" />
           </button>
@@ -103,7 +103,7 @@ export default function Lightbox({
             <button
               onClick={goNext}
               aria-label="Next photo"
-              className="hidden sm:flex absolute right-2 md:-right-4 text-warm-white/60 hover:text-warm-white transition-colors p-2"
+              className="hidden sm:flex absolute right-2 md:-right-4 text-warm-white/60 hover:text-warm-white transition-colors p-2 cursor-pointer"
             >
               <Icon type={Icons.NextArrow} />
             </button>
