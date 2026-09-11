@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { heroSlides } from "@/lib/data/hero";
 
@@ -17,28 +17,25 @@ export default function HeroCarousel() {
     return () => clearInterval(timer);
   }, []);
 
-  const slide = heroSlides[index];
-
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <AnimatePresence mode="sync">
+      {heroSlides.map((slide, i) => (
         <motion.div
           key={slide.src ?? slide.placeholderLabel}
           className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={false}
+          animate={{ opacity: i === index ? 1 : 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
         >
           <Image
             src={slide.src}
             alt={slide.alt}
             fill
-            priority={index === 0}
+            priority={i === 0 || i === 1}
             className="object-cover"
           />
         </motion.div>
-      </AnimatePresence>
+      ))}
 
       <div className="absolute inset-0 bg-dark/50" />
 
