@@ -39,7 +39,7 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-dark/90 backdrop-blur-sm px-4 sm:px-8"
+          className="fixed inset-0 z-9999 flex items-center justify-center bg-dark/90 backdrop-blur-sm px-4 sm:px-8"
           onClick={onClose}
         >
           <button
@@ -56,9 +56,9 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
             exit={{ opacity: 0, scale: 0.94 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-3xl rounded-lg overflow-hidden bg-dark"
+            className="relative w-full max-w-sm rounded-lg overflow-hidden bg-dark"
           >
-            <div className="relative aspect-video">
+            <div className="relative aspect-9/16 max-h-[80vh] mx-auto">
               <iframe
                 src={`https://player.vimeo.com/video/${video.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
                 className="absolute inset-0 w-full h-full"

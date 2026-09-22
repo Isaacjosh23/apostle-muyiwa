@@ -7,6 +7,10 @@ export interface HeroSlide {
 export const heroSlides: HeroSlide[] = [
   {
     alt: "Daddy ministering",
+    src: "/hero/h-main.jpg",
+  },
+  {
+    alt: "Daddy ministering",
     src: "/hero/h-1.jpg",
   },
   {
