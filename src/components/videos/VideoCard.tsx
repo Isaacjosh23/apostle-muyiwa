@@ -27,9 +27,9 @@ export default function VideoCard({
     >
       <div
         style={{
-          backgroundImage: `url(https://picsum.photos/seed/${video.id}/640/400)`,
+          backgroundImage: `url(https://vumbnail.com/${video.vimeoId}.jpg)`,
         }}
-        className="relative aspect-video rounded-lg overflow-hidden bg-dark/10 mb-4 bg-cover bg-center"
+        className="relative aspect-9/16 rounded-lg overflow-hidden bg-dark/10 mb-4 bg-cover bg-center"
       >
         <div className="absolute inset-0 bg-dark/30 group-hover:bg-dark/45 transition-colors duration-300" />
         <div className="absolute inset-0 flex items-center justify-center">

@@ -9,7 +9,7 @@ export const videos: Video[] = [
   {
     id: "video-01",
     // title: "A Father Who Never Gave Up On Me",
-    vimeoId: PLACEHOLDER_VIMEO_ID,
+    vimeoId: 1229160919,
     // contributorName: "Pastor Kunle Adebayo",
     // caption: "Son in the faith, now leading his own ministry",
     sortOrder: 1,
@@ -17,7 +17,7 @@ export const videos: Video[] = [
   {
     id: "video-02",
     // title: "He Believed In Me Before I Believed In Myself",
-    vimeoId: PLACEHOLDER_VIMEO_ID,
+    vimeoId: 1229160705,
     // contributorName: "Deaconess Ronke Fashola",
     // caption: "Daughter in the faith, 15 years of mentorship",
     sortOrder: 2,
