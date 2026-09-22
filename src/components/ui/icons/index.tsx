@@ -5,6 +5,8 @@ import CheckMarkIcon from "./checkmark";
 import CloseIcon from "./close";
 import EmailIcon from "./email";
 import ExitIcon from "./exit";
+import EyeCloseIcon from "./eye-close";
+import EyeOpenIcon from "./eye-open";
 import MenuIcon from "./menu";
 import NextArrow from "./next-arrow";
 import PlayIcon from "./play";
@@ -38,6 +40,12 @@ export function Icon({ type, className }: Props) {
 
     case Icons.Exit:
       return <ExitIcon {...props} />;
+
+    case Icons.EyeClose:
+      return <EyeCloseIcon {...props} />;
+
+    case Icons.EyeOpen:
+      return <EyeOpenIcon {...props} />;
 
     case Icons.Menu:
       return <MenuIcon {...props} />;
