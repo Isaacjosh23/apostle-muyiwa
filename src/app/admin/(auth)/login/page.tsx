@@ -3,13 +3,20 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { Icon } from "@/components/ui/icons";
+import { Icons } from "@/components/ui/icons/_types";
 
 export default function AdminLoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const handlePasswordVisibility = () => {
+    setPasswordVisibility((open) => !open);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,7 +71,7 @@ export default function AdminLoginPage() {
             />
           </div>
 
-          <div>
+          <div className="relative">
             <label
               htmlFor="password"
               className="block font-sans text-[1.2rem] font-medium text-warm-white/80 mb-1.5"
@@ -73,13 +80,28 @@ export default function AdminLoginPage() {
             </label>
             <input
               id="password"
-              type="password"
+              type={passwordVisibility ? "text" : "password"}
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-3 rounded-md border border-gold/20 bg-warm-white/5 font-sans text-[1.4rem] text-warm-white focus:outline-none focus:border-gold transition-colors"
               autoComplete="current-password"
             />
+
+            <button
+              type="button"
+              onClick={handlePasswordVisibility}
+              className="absolute right-4 top-[3.1rem] focus:outline-none cursor-pointer"
+            >
+              {passwordVisibility ? (
+                <Icon
+                  type={Icons.EyeClose}
+                  className="size-8 text-warm-white"
+                />
+              ) : (
+                <Icon type={Icons.EyeOpen} className="size-8 text-warm-white" />
+              )}
+            </button>
           </div>
 
           {error && (

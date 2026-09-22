@@ -9,6 +9,8 @@ export const Icons = {
   Close: "close",
   Email: "email",
   Exit: "exit",
+  EyeClose: "eye-close",
+  EyeOpen: "eye-open",
   Menu: "menu",
   Play: "play",
   PreviousArrow: "previous-arrow",
