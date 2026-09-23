@@ -23,7 +23,7 @@ export default function FeaturedVideos() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-14">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(130px,150px))] sm:grid-cols-[repeat(auto-fill,minmax(160px,200px))] justify-center gap-4 sm:gap-8 mb-10 sm:mb-14">
           {featuredVideos.map((video, index) => (
             <VideoCard
               key={video.id}

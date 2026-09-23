@@ -14,7 +14,7 @@ export default function VideoGrid({ videos }: VideoGridProps) {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(130px,150px))] sm:grid-cols-[repeat(auto-fill,minmax(160px,200px))] justify-center gap-4 sm:gap-8 max-w-6xl mx-auto">
         {videos.map((video, index) => (
           <VideoCard
             key={video.id}
