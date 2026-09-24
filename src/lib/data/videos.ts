@@ -25,7 +25,7 @@ export const videos: Video[] = [
   {
     id: "video-03",
     // title: "Lessons That Shaped My Ministry",
-    vimeoId: PLACEHOLDER_VIMEO_ID,
+    vimeoId: 1229860535,
     // contributorName: "Minister Tayo Bankole",
     // caption: "Mentee, now serving in youth ministry",
     sortOrder: 3,
@@ -33,7 +33,7 @@ export const videos: Video[] = [
   {
     id: "video-04",
     // title: "More Than A Pastor, A True Father",
-    vimeoId: PLACEHOLDER_VIMEO_ID,
+    vimeoId: 1229860534,
     // contributorName: "Sister Amaka Obi",
     // caption: "Spiritual daughter, member for over a decade",
     sortOrder: 4,
@@ -41,7 +41,7 @@ export const videos: Video[] = [
   {
     id: "video-05",
     // title: "Standing On His Shoulders",
-    vimeoId: PLACEHOLDER_VIMEO_ID,
+    vimeoId: 1229860533,
     // contributorName: "Pastor Emeka Nwosu",
     // caption: "Son in the faith, church planter",
     sortOrder: 5,
