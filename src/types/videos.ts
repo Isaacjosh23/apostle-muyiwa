@@ -1,7 +1,7 @@
 export interface Video {
   id: string;
   title?: string;
-  vimeoId: string | number;
+  vimeoId: number;
   contributorName?: string;
   caption?: string;
   sortOrder: number;

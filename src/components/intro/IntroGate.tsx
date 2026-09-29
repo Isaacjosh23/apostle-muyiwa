@@ -27,7 +27,7 @@ export default function IntroGate() {
             <RoseBloom className="absolute top-6 right-1/3 w-24 sm:w-28 md:w-36 text-gold opacity-[0.18] rotate-[8deg]" />
 
             <div className="mb-4 sm:mb-6 text-center px-6 sm:px-8 md:px-4 max-w-[24rem] sm:max-w-xl relative">
-              <h1 className="font-serif text-4xl sm:text-6xl leading-tight text-warm-white tracking-wide">
+              <h1 className="font-serif text-4xl sm:text-6xl leading-tight italic text-warm-white tracking-wide">
                 Begin The Legacy
               </h1>
             </div>
