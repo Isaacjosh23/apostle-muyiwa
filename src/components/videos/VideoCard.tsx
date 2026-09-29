@@ -23,7 +23,7 @@ export default function VideoCard({
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
       onClick={() => onPlay(video)}
-      className="group text-left cursor-pointer"
+      className="group text-left cursor-pointer w-full"
     >
       <div
         style={{
