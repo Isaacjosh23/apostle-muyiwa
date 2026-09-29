@@ -23,14 +23,14 @@ export default function FeaturedVideos() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(130px,150px))] sm:grid-cols-[repeat(auto-fill,minmax(160px,200px))] justify-center gap-4 sm:gap-8 mb-10 sm:mb-14">
+        <div className="grid grid-cols-2 sm:grid-cols-3 justify-center gap-4 sm:gap-8 mb-10 sm:mb-14">
           {featuredVideos.map((video, index) => (
-            <VideoCard
+            <div
               key={video.id}
-              video={video}
-              index={index}
-              onPlay={setActiveVideo}
-            />
+              className={`w-full ${index === 3 ? "sm:hidden" : ""}`}
+            >
+              <VideoCard video={video} index={index} onPlay={setActiveVideo} />
+            </div>
           ))}
         </div>
 

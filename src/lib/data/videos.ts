@@ -1,7 +1,5 @@
 import { Video } from "@/types/videos";
 
-const PLACEHOLDER_VIMEO_ID = "76979871";
-
 export const videos: Video[] = [
   {
     id: "video-01",
@@ -30,8 +28,13 @@ export const videos: Video[] = [
   },
   {
     id: "video-06",
-    vimeoId: PLACEHOLDER_VIMEO_ID,
+    vimeoId: 1231441272,
     sortOrder: 6,
+  },
+  {
+    id: "video-07",
+    vimeoId: 1231441108,
+    sortOrder: 7,
   },
 ];
 
