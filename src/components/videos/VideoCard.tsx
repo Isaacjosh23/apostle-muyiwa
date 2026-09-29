@@ -38,11 +38,6 @@ export default function VideoCard({
           </div>
         </div>
       </div>
-
-      {/* <h3 className="font-serif text-xl text-text-primary mb-1">
-        {video.contributorName}
-      </h3>
-      <p className="font-sans text-[1.3rem] text-text-muted">{video.caption}</p> */}
     </motion.button>
   );
 }

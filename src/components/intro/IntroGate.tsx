@@ -28,7 +28,7 @@ export default function IntroGate() {
 
             <div className="mb-4 sm:mb-6 text-center px-6 sm:px-8 md:px-4 max-w-[24rem] sm:max-w-xl relative">
               <h1 className="font-serif text-4xl sm:text-6xl leading-tight text-warm-white tracking-wide">
-                Let the beautiful story begin
+                Begin The Legacy
               </h1>
             </div>
           </motion.div>
